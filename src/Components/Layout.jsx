@@ -6,10 +6,7 @@ export default function Layout(props) {
   return (
     <>
         <Navigation />
-        <div>
             {props.children}
-        </div>
-
         <Footer />
     </>
     

@@ -12,7 +12,7 @@ export default function Navigation() {
                 <ul className='flex justify-end'>
                     <li><Link className='nav-link' to='/'>Home</Link></li>
                     <li><Link className='nav-link' to='/about'>About</Link></li>
-                    <li><Link className='nav-link' to='/'>Services</Link></li>
+                    <li><Link className='nav-link' to='/product'>Product</Link></li>
                     <li><Link className='nav-link' to='/blog'>Blog</Link></li>
                     <li><Link className='nav-link' to='/'>Contact</Link></li>
                 </ul>

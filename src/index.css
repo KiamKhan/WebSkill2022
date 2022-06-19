@@ -20,11 +20,15 @@
 }
 
 .secondary_head{
-    @apply text-center mb-12 uppercase text-3xl text-[#353535]
+    @apply text-center mb-7 uppercase text-3xl text-[#353535]
 }
 
 .inner-head{
     @apply text-[24px] text-gray-500 mb-6 capitalize
+}
+
+.item_head{
+    @apply text-[20px] text-gray-500 mb-2 capitalize
 }
 
 .paragraph{
