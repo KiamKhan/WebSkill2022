@@ -12,7 +12,7 @@ export default function CartItem(props) {
 
         <span className='mr-3'>
             <button onClick={() => props.addToCart(cartItem)} className='mini_btn'>+</button>
-            <button onClick={() => props.decreament(cartItem.qty)} className='mini_btn mx-3'>-</button>
+            <button onClick={() => props.decreament(cartItem)} className='mini_btn mx-3'>-</button>
             <button onClick={() => props.removeItem(cartItem)} className='mini_btn'>Delete Item</button>
         </span>
     </li>

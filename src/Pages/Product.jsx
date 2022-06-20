@@ -45,6 +45,29 @@ export default function Product() {
             setcart([...updateCart])
     }
 
+    const decreament = product =>{
+        let newItem = true;
+
+        const existItem = cart.map(item =>{
+            if(item.id === product.id){
+                if(item.qty === 0){
+                    item.qty = 0
+                } else{
+                    item.qty = item.qty - 1
+                }
+                newItem = false
+            }
+            return item
+        })
+
+        if(newItem){
+            product.qty = 1
+            setcart([...cart, product]) // if true check this
+        } else{
+            setcart([...existItem]) // if false check this
+        }
+    }
+
   return (
     <Layout>
         <section className='justify-center items-center section-gap pt-28'>
@@ -63,6 +86,7 @@ export default function Product() {
                                     cartItem={cartItem}
                                     removeItem={(id) => removeItem(id)}
                                     addToCart={(product) => insertToCart(product)}
+                                    decreament={(product) => decreament(product)}
                                 />
                             )
                        })}
@@ -75,7 +99,7 @@ export default function Product() {
                             <Cart 
                                 key={item.id} 
                                 items={item}
-                                addToCart={(product) => insertToCart(product)}
+                                addToCart={(product) => insertToCart(product)} // also for increament
                             />
                         )
                     })}
