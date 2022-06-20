@@ -50,6 +50,7 @@ export default function Product() {
             return (item.qty = qty + 1)
         })
         console.log(qty)
+        // setcart([...cart.qty, qty]) //cart.qty undifind
     }
 
     const decreament = qty =>{
