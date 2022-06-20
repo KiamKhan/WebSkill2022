@@ -14,10 +14,56 @@ export default function Product() {
     const [cart, setcart] = useState([])
 
     const insertToCart = product =>{
-        setcart([...cart, product])
+        // is the p exist
+        // if exist update qty
+        // if not exist add p
+
+        let newItem = true;
+
+        const existItem = cart.map(item =>{
+            if(item.id === product.id){
+                item.qty = item.qty + 1
+                newItem = false
+            }
+            return item
+        })
+
+        if(cart.length === 0){
+            newItem = true
+        }
+
+        if(newItem){
+            product.qty = 1
+            setcart([...cart, product]) // if true check this
+        } else{
+            setcart([...existItem]) // if false check this
+        }
     }
 
+    const removeItem = id =>{
+        const updateCart = cart.filter(item => item != id)
+            setcart([...updateCart])
+    }
 
+    const increament = qty =>{
+        cartitem.map(item => {
+            return (item.qty = qty + 1)
+        })
+        console.log(qty)
+    }
+
+    const decreament = qty =>{
+        cartitem.map(item => {
+            if(item.qty === 0){
+                qty = 0
+            } else{
+                item.qty = qty - 1
+            }
+
+            return qty
+        })
+        console.log(qty)
+    }
 
   return (
     <Layout>
@@ -32,7 +78,13 @@ export default function Product() {
                     <ul>
                        {cart.map(cartItem =>{
                             return(
-                                <CartItem key={cartItem.id} />
+                                <CartItem 
+                                    key={cartItem.id}
+                                    cartItem={cartItem}
+                                    removeItem={(id) => removeItem(id)}
+                                    increament={(qty) => increament(qty)}
+                                    decreament={(qty) => decreament(qty)}
+                                />
                             )
                        })}
                     </ul>
