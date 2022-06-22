@@ -28,21 +28,23 @@ export default function Product() {
             return item
         })
 
-        if(cart.length === 0){
-            newItem = true
-        }
+        // if(cart.length === 0){
+        //     newItem = true               //we can skip this line 
+        // }
 
         if(newItem){
             product.qty = 1
-            setcart([...cart, product]) // if true check this
+            setcart([...cart, product]) // if newItem true check this
         } else{
-            setcart([...existItem]) // if false check this
+            setcart([...existItem]) // if newItem false check this
         }
     }
 
     const removeItem = id =>{
-        const updateCart = cart.filter(item => item != id)
+        const updateCart = cart.filter(item => item !== id)
             setcart([...updateCart])
+
+            console.log(updateCart)
     }
 
     const decreament = product =>{

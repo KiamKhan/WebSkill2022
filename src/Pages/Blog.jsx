@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
 import Layout from '../Components/Layout'
+import PostThumb from '../Components/PostThumb'
 
 export default function Blog() {
     const [post, setPost] = useState([])
@@ -14,7 +14,6 @@ export default function Blog() {
             }
         })
     }, [])
-    
 
   return (
     <Layout>
@@ -35,16 +34,13 @@ export default function Blog() {
                     <h3 className='secondary_head'>Blog Posts</h3>
                 </div>
 
-                <div>
+                <div className='grid grid-cols-12 gap-6 '>
                     {post.map(post =>{
                         return(
-                            <Link 
-                                key={post.id}
-                                to={`/blog/${post.id}`}
-                                className='link'
-                            >
-                                {post.title}
-                            </Link>
+                            <PostThumb
+                                key={post.id} 
+                                post={post}
+                             />
                         )
                     })}
                 </div>

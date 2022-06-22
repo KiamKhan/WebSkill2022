@@ -21,7 +21,7 @@ export default function Post() {
         <Layout>
             
                 {post ? (
-                    <section className='h-screen flex justify-center items-center'>
+                    <section className='h-screen grid justify-center content-center'>
                         <div className='sm:container mx-auto'>
                             <h2 className='secondary_head'>{post.title}</h2>
                             <p className='paragraph text-xl text-center'>{post.body}</p>
