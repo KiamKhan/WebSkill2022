@@ -9,6 +9,10 @@ export default function Product() {
         {id: 2, name: 'Mango', price: 50, img: '/images/cart_2.jpg'},
         {id: 3, name: 'Orange', price: 70, img: '/images/cart_3.jpg'},
         {id: 4, name: 'Jackfruit', price: 150, img: '/images/cart_4.jpg'},
+        {id: 5, name: 'Capsicum', price: 60, img: '/images/cart_5.jpg'},
+        {id: 6, name: 'Tomato', price: 90, img: '/images/cart_6.jpg'},
+        {id: 7, name: 'Green Peas', price: 40, img: '/images/cart_7.jpg'},
+        {id: 8, name: 'Carrot', price: 110, img: '/images/cart_8.jpg'},
     ])
 
     const [cart, setcart] = useState([])

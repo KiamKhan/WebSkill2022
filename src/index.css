@@ -36,7 +36,7 @@
 }
 
 .btn{
-    @apply inline-block py-3 px-5 capitalize text-center bg-sky-500 mt-8 text-white transition-all ease-linear;
+    @apply inline-block py-3 px-5 capitalize text-center bg-sky-500 hover:shadow-md hover:shadow-sky-500/50 mt-8 text-white transition-all ease-linear duration-300;
 }
 
 .mini_btn{
