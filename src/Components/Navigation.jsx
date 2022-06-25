@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 
 export default function Navigation() {
+    const [fixNav, setfixNav] = useState(false)
+
+    // menu fix 
+    const menuFix = () =>{
+        (window.scrollY > 150) ? setfixNav(true) : setfixNav(false)
+    }
+    window.addEventListener('scroll', menuFix)
+
+
   return (
-    <nav className='py-8 bg-black/60 fixed w-full z-50'>
+    <nav className={fixNav ? 'nav fixNav' : 'nav'}>
         <div className='sm:container mx-auto flex'>
             <div className='basis-1/5'>
                 <Link className='text-4xl text-white font-bold' to={'/'}>Logo</Link>

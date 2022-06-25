@@ -5,7 +5,7 @@ export default function Cart(props) {
 
 
   return (
-    <div className='shadow-lg col-span-3'>
+    <div className='card'>
         <div>
             <img className='w-100' src={item.img} alt="fruit" />
         </div>

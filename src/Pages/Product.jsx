@@ -32,10 +32,6 @@ export default function Product() {
             return item
         })
 
-        // if(cart.length === 0){
-        //     newItem = true               //we can skip this line 
-        // }
-
         if(newItem){
             product.qty = 1
             setcart([...cart, product]) // if newItem true check this
@@ -52,26 +48,19 @@ export default function Product() {
     }
 
     const decreament = product =>{
-        let newItem = true;
 
-        const existItem = cart.map(item =>{
+        const existItem = cart.filter(item => {
             if(item.id === product.id){
-                if(item.qty === 0){
-                    item.qty = 0
-                } else{
+                if(item.qty > 1){
                     item.qty = item.qty - 1
+                    return item
                 }
-                newItem = false
+            } else{
+                return item
             }
-            return item
         })
 
-        if(newItem){
-            product.qty = 1
-            setcart([...cart, product]) // if true check this
-        } else{
-            setcart([...existItem]) // if false check this
-        }
+        setcart([...existItem])
     }
 
   return (

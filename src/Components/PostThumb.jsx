@@ -6,8 +6,8 @@ export default function PostThumb(props) {
     let image = `https://picsum.photos/id/${post.id}/400/300`
     
   return (
-    <div className='col-span-4 text-center shadow-lg'>
-        <h4 className='inner-head mt-6'>{post.title}</h4>
+    <div className='cardSmall6 text-center'>
+        <h4 className='inner-head mt-6 px-5'>{post.title}</h4>
         <div><img className='w-full' src={image} alt="api image" /></div>
         <p className='paragraph mt-8 px-5'>{post.body}</p>
 
