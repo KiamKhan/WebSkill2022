@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Cart from '../Components/Cart'
-import CartItem from '../Components/CartItem'
+import { CartContext } from '../Context/CartContext'
 import Layout from '../Components/Layout'
 
 export default function Product() {
@@ -15,92 +15,29 @@ export default function Product() {
         {id: 8, name: 'Carrot', price: 110, img: '/images/cart_8.jpg'},
     ])
 
-    const [cart, setcart] = useState([])
+    const cartContext = useContext(CartContext)
 
-    const insertToCart = product =>{
-        // is the p exist
-        // if exist update qty
-        // if not exist add p
-
-        let newItem = true;
-
-        const existItem = cart.map(item =>{
-            if(item.id === product.id){
-                item.qty = item.qty + 1
-                newItem = false
-            }
-            return item
-        })
-
-        if(newItem){
-            product.qty = 1
-            setcart([...cart, product]) // if newItem true check this
-        } else{
-            setcart([...existItem]) // if newItem false check this
-        }
-    }
-
-    const removeItem = id =>{
-        const updateCart = cart.filter(item => item !== id)
-            setcart([...updateCart])
-
-            console.log(updateCart)
-    }
-
-    const decreament = product =>{
-
-        const existItem = cart.filter(item => {
-            if(item.id === product.id){
-                if(item.qty > 1){
-                    item.qty = item.qty - 1
-                    return item
-                }
-            } else{
-                return item
-            }
-        })
-
-        setcart([...existItem])
-    }
-
-  return (
-    <Layout>
-        <section className='justify-center items-center section-gap pt-28'>
-            <div className='sm:container mx-auto'>
-                <div>
-                    <h1 className='main_head text-black mb-7'>Our products</h1>
-                </div>
-
-                <div>
-                    <h3 className='inner-head'>your items: {cart.length}</h3>
-                    <ul>
-                       {cart.map(cartItem =>{
-                            return(
-                                <CartItem 
-                                    key={cartItem.id}
-                                    cartItem={cartItem}
-                                    removeItem={(id) => removeItem(id)}
-                                    addToCart={(product) => insertToCart(product)}
-                                    decreament={(product) => decreament(product)}
-                                />
-                            )
-                       })}
-                    </ul>
-                </div>
-
-                <div className='grid grid-cols-12 gap-6'>
-                    {cartitem.map(item =>{
-                        return(
-                            <Cart 
-                                key={item.id} 
-                                items={item}
-                                addToCart={(product) => insertToCart(product)} // also for increament
-                            />
-                        )
-                    })}
-                </div>
-            </div>
-        </section>
-    </Layout>
-  )
-}
+    return (
+      <Layout>
+          <section className='justify-center items-center section-gap pt-28'>
+              <div className='sm:container mx-auto'>
+                  <div>
+                      <h1 className='main_head text-black mb-7'>Our products</h1>
+                  </div>
+  
+                  <div className='grid grid-cols-12 gap-6'>
+                      {cartitem.map(item =>{
+                          return(
+                              <Cart 
+                                  key={item.id} 
+                                  items={item}
+                                  addToCart={(product) => cartContext.insertToCart(product)} // also for increament
+                              />
+                          )
+                      })}
+                  </div>
+              </div>
+          </section>
+      </Layout>
+    )
+  }

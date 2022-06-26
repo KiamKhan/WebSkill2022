@@ -3,18 +3,18 @@ import React from 'react'
 export default function CartItem(props) {
     const cartItem = props.cartItem
   return (
-    <li className='link pl-6 text-start w-1/2 flex justify-between'>
-        <span className='leading-[44px]'>
-            <span>{cartItem.name}</span>
-            <span className='mx-8'>Price: {cartItem.price}$</span>
-            <span>Qty: {cartItem.qty}kg</span>
-        </span>
-
-        <span className='mr-3'>
-            <button onClick={() => props.addToCart(cartItem)} className='mini_btn'>+</button>
-            <button onClick={() => props.decreament(cartItem)} className='mini_btn mx-3'>-</button>
-            <button onClick={() => props.removeItem(cartItem)} className='mini_btn'>Delete Item</button>
-        </span>
+    <li className='bg-white text-black mb-4 py-4'>
+        <div className='flex justify-evenly text-xl mb-4'>
+            <p>{cartItem.name}</p>
+            <p>Price: {cartItem.price}$</p>
+            <p>Qty: {cartItem.qty}</p>
+        </div>
+        <div className='text-center'>
+            <button className='cartItem_btn' onClick={() => props.addToCart(cartItem)} >+</button>
+            <button className='cartItem_btn mx-4' onClick={() => props.decreament(cartItem)} >-</button>
+            <button className='cartItem_btn' onClick={() => props.removeItem(cartItem)} >Delete Item</button>
+        </div>
     </li>
   )
 }
+
