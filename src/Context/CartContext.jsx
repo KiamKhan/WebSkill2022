@@ -25,6 +25,11 @@ export default function CartContextProvider(props) {
             product.qty = 1
             setcart([...cart, product]) // if newItem true check this
         } else{
+            // for checking price update
+            existItem.forEach(item =>{
+                console.log(item.price * item.qty)
+            })
+            
             setcart([...existItem]) // if newItem false check this
         }
     }

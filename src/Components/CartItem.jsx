@@ -3,7 +3,7 @@ import React from 'react'
 export default function CartItem(props) {
     const cartItem = props.cartItem
   return (
-    <li className='bg-white text-black mb-4 py-4'>
+    <li className='bg-slate-50 text-black py-4 mb-1'>
         <div className='flex justify-evenly text-xl mb-4'>
             <p>{cartItem.name}</p>
             <p>Price: {cartItem.price}$</p>
