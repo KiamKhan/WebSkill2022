@@ -21,6 +21,7 @@ export default function CartCount() {
             <div className={sideMenu ? 'side_menu active' : 'side_menu'}>
                 <div className='flex justify-around'>
                     <span className='pt-8 pl-8'>Cart: {cartContext.cart.length}</span>
+                    <span className='pt-8 pl-8'>Total: </span>
                     <button onClick={closeSideMenu} className='pt-8 pl-8'>Close</button>
                 </div>
                 <div>

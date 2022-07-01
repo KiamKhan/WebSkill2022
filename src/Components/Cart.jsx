@@ -5,9 +5,9 @@ export default function Cart(props) {
     const [btnActive, setbtnActive] = useState(false)
 
     // btnAct to setbtnActive true
-    // const btnAct = () =>{
-    //     setbtnActive(true)
-    // }
+    const btnAct = () =>{
+        setbtnActive(true)
+    }
 
   return (
     <div className='card'>
@@ -19,7 +19,7 @@ export default function Cart(props) {
             <p className='paragraph'>Price: {item.price}$</p>
         </div>
         <div className='text-center'>
-            <button onClick={() => props.addToCart(item)} className={btnActive ? 'btn my-4' : 'cartBtn my-4'}>add to cart</button>
+            <button onClick={() => {props.addToCart(item); btnAct()}} className={btnActive ? 'btn my-4' : 'cartBtn my-4'}>add to cart</button>
         </div>
     </div>
   )
